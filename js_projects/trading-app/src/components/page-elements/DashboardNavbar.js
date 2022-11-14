@@ -1,37 +1,28 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 import StockTicks from "../../assets/img/stocks.svg"
 import BurgerMenu from "../../assets/img/menu.svg"
 
-export default class DashboardNavbar extends Component{
-    constructor(props){
-        super(props)
+export default function DashboardNavbar(){
+    const [barOpened, setBarOpened] = useState(false)
 
-        // Define state values
-        this.state = {
-            barOpened: false,
-            isActive: false
-        }
-    }
-
-    render(){
-        return (
-            <Navbar className = "dashboard-navbar" barOpened = {this.state.barOpened}>
-                <Link to="/"><BurgerMenuImg src= {BurgerMenu}></BurgerMenuImg></Link>
-                <Link to="/test"><Image src= {StockTicks}></Image></Link>
-                <Link to="/test"><Image src= {StockTicks}></Image></Link>
-                <Link to="/test"><Image src= {StockTicks}></Image></Link>
-                <Link to="/test"><Image src= {StockTicks}></Image></Link>
-            </Navbar>)
-    }
+    return (
+        <Navbar className = "dashboard-navbar" bar-opened = {barOpened}>
+            <BurgerMenuImg src= {BurgerMenu} onClick = {event => setBarOpened(!barOpened)}></BurgerMenuImg>
+            <Link to="/test"><Image src= {StockTicks}></Image></Link>
+            <Link to="/test"><Image src= {StockTicks}></Image></Link>
+            <Link to="/test"><Image src= {StockTicks}></Image></Link>
+            <Link to="/test"><Image src= {StockTicks}></Image></Link>
+        </Navbar>)
 }
 
 const Navbar = styled.div`
     padding: 1rem;
-    margin-top: 10vh;
+    padding-top: 10vh;
     background-color: black;
-    height: 100vh;
+    min-height: 40%;
+    height: 100%;
     width: 10vw;
     display: flex;
     flex-direction: column;

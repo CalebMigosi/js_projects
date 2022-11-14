@@ -1,23 +1,21 @@
-import React, {Component} from "react";
+import React from "react";
 import SearchBar from "../form/Searchbar";
 import styled from "styled-components";
 import MailImage from "../../assets/img/email.png"
 
-// Define a header bar
-export default class Headerbar extends Component{
-    render() {
-        return (<Header>
-                    <SearchBarContainer>
-                        <SearchBar type="search"/>
-                        <Image></Image>
-                    </SearchBarContainer>
-                </Header>)
-    };
+export default function Headerbar(){
+    return (<Header className = 'header'>
+        <SearchBarContainer className = 'search-bar-container'>
+            <SearchBar className="search-bar" type="search"/>
+            <Image></Image>
+        </SearchBarContainer>
+    </Header>)
 }
 
 // Define styled headerbar
 const Header = styled.div`
-    height: 4vh;
+    height: 2rem;
+    min-height: 2rem;
     width: 100vw;
     background-color: #14283c;
 `
@@ -27,7 +25,8 @@ const SearchBarContainer = styled.div`
     justify-content: end;
     align-items:center;
     padding-right: 1vw;
-    height: 4vh;
+    height: 2rem;
+    min-height: 2rem;
     width: 80vw;
     border-bottom: 0.5px solid white;
     border-right: 0.5px solid white;
